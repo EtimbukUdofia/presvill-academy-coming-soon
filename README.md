@@ -2,7 +2,7 @@
 
 [![Production Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 [![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict%20Mode-blue.svg)]()
-[![Testing Suite](https://img.shields.io/badge/tests-26%20passed-success.svg)]()
+[![Testing Suite](https://img.shields.io/badge/tests-30%20passed-success.svg)]()
 [![Cloudflare Pages](https://img.shields.io/badge/deploy-Cloudflare%20Pages-orange.svg)]()
 
 The official, production-ready **Coming Soon** web portal for **Presvill Academy**, a premier private co-educational institution located in Uyo, Akwa Ibom State, Nigeria.
@@ -26,7 +26,7 @@ This portal announces the upcoming launch of the school's digital home, publiciz
   - Schema.org `EducationalOrganization` JSON-LD structured data for search engines.
   - Public `robots.txt` crawler indexing policy.
 - **Enterprise Security & Cloudflare Optimizations**:
-  - `public/_headers` defining strict CSP, HSTS, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, and asset caching headers.
+  - `public/_headers` defining strict HSTS (`Strict-Transport-Security`), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, and asset caching headers.
 - **Accessibility (WCAG 2.1 AA)**:
   - Skip-to-content anchor navigation (`#main-content`).
   - Semantic HTML5 landmarks (`<header>`, `<main>`, `<section>`, `<footer>`).
@@ -71,7 +71,9 @@ presvill-coming-soon/
 │   │   └── school.ts             # Central source of truth for school contact & info
 │   ├── lib/
 │   │   ├── contact.ts            # URL builders (WhatsApp, tel, mailto, maps)
-│   │   └── contact.test.ts       # Contact sanitization and link builder unit tests
+│   │   ├── contact.test.ts       # Contact sanitization and link builder unit tests
+│   │   ├── utils.ts              # Class name composition utility (clsx + tailwind-merge)
+│   │   └── utils.test.ts         # Utility function unit tests
 │   ├── types/
 │   │   └── index.ts              # TypeScript interfaces for school data contracts
 │   ├── App.tsx                   # Main application layout with skip link
@@ -169,6 +171,7 @@ The build process automatically outputs all necessary Cloudflare assets:
    - `X-Content-Type-Options: nosniff`
    - `Referrer-Policy: strict-origin-when-cross-origin`
    - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+   - `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
    - Cache policies for `/logo.png`, `/og-image.png`, and `/robots.txt`.
 2. `dist/robots.txt`: Search crawler directives allowing full indexing.
 3. `dist/logo.png` & `dist/og-image.png`: High-resolution branding and social cards.

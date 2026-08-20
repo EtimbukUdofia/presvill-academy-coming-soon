@@ -7,12 +7,16 @@ const NIGERIA_DIALLING_CODE = "234";
  * - Local Nigerian format: "0708 223 8793" -> "+2347082238793"
  * - Compact local format: "08182842919" -> "+2348182842919"
  * - International with spaces/symbols: "+234 708 223 8793" -> "+2347082238793"
+ * - International with trunk zero: "+234 (0) 708 223 8793" -> "+2347082238793"
  * - Clean international digits: "2347082238793" -> "+2347082238793"
  */
 export function formatE164Phone(raw: string): string {
   const digits = raw.replace(/\D/g, "");
   if (!digits) return "";
 
+  if (digits.startsWith(`${NIGERIA_DIALLING_CODE}0`)) {
+    return `+${NIGERIA_DIALLING_CODE}${digits.slice(NIGERIA_DIALLING_CODE.length + 1)}`;
+  }
   if (digits.startsWith(NIGERIA_DIALLING_CODE)) {
     return `+${digits}`;
   }

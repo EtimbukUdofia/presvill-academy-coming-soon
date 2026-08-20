@@ -19,6 +19,11 @@ describe("Contact Utilities", () => {
       expect(formatE164Phone("+234-818-284-2919")).toBe("+2348182842919");
     });
 
+    it("handles trunk zero notation in international format", () => {
+      expect(formatE164Phone("+234 (0) 708 223 8793")).toBe("+2347082238793");
+      expect(formatE164Phone("+234(0)8182842919")).toBe("+2348182842919");
+    });
+
     it("handles bare international country code prefix", () => {
       expect(formatE164Phone("2347082238793")).toBe("+2347082238793");
     });
