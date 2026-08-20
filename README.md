@@ -16,7 +16,7 @@ This portal announces the upcoming launch of the school's digital home, publiciz
 - **Admissions Spotlight**: Clear enrollment callout for the 2026/2027 academic year with pre-filled WhatsApp inquiry integration.
 - **Direct Multi-Channel Contact Grid**:
   - **WhatsApp Chat**: One-click direct messaging to the admissions desk (`0708 223 8793`).
-  - **Direct Telephone Lines**: Click-to-call links for both Primary (`0708 223 8793`) and Alternate (`0803 892 5683`) administrative lines.
+  - **Direct Telephone Lines**: Click-to-call links for both Primary (`0708 223 8793`) and Alternate (`0818 284 2919`) administrative lines.
   - **Official Email Desk**: Direct `mailto:` link with pre-populated inquiry subject (`presvillacademy@gmail.com`).
   - **Campus Navigation**: Direct Google Maps geolocation link to `18 Abel Damina Way, Uyo, Akwa Ibom State`.
 - **Institutional Design System**: Polished dark theme built on Tailwind CSS v4, featuring brand orange accents (`#FF6A00`), subtle radial gradients, frosted glassmorphism, and responsive typography (Outfit + Plus Jakarta Sans).
