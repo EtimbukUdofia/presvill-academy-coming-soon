@@ -3,8 +3,11 @@ import { renderToString } from "react-dom/server";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { AdmissionsCard } from "./AdmissionsCard";
+import { ContactGrid } from "./ContactGrid";
+import { Footer } from "./Footer";
+import App from "../App";
 import { school } from "../data/school";
-import { buildWhatsAppUrl } from "../lib/contact";
+import { buildWhatsAppUrl, buildTelUrl } from "../lib/contact";
 
 describe("UI Components", () => {
   describe("Header component", () => {
@@ -52,9 +55,85 @@ describe("UI Components", () => {
         school.whatsapp.value,
         `Hello ${school.name}, I would like to make an inquiry regarding admissions for the ${school.session} academic session.`
       );
-      // Ensure the href contains the expected wa.me URL
       expect(html).toContain(`href="${expectedUrl.replace(/&/g, "&amp;")}"`);
       expect(html).toContain(school.whatsapp.display);
+    });
+
+    it("includes the 'group' class on the CTA link for hover micro-interaction", () => {
+      const html = renderToString(<AdmissionsCard />);
+      expect(html).toContain("group ");
+    });
+  });
+
+  describe("ContactGrid component", () => {
+    it("renders all 4 contact cards", () => {
+      const html = renderToString(<ContactGrid />);
+      expect(html).toContain("WhatsApp Chat");
+      expect(html).toContain("Direct Phone Lines");
+      expect(html).toContain("Email Inquiry");
+      expect(html).toContain("Campus Location");
+    });
+
+    it("renders WhatsApp link with valid wa.me URI and display phone", () => {
+      const html = renderToString(<ContactGrid />);
+      expect(html).toContain("https://wa.me/2347082238793");
+      expect(html).toContain(school.whatsapp.display);
+    });
+
+    it("renders both primary and alternate phone numbers with tel: URIs", () => {
+      const html = renderToString(<ContactGrid />);
+      const primaryTel = buildTelUrl(school.phone.value);
+      const altTel = buildTelUrl(school.phoneAlt.value);
+      expect(html).toContain(`href="${primaryTel}"`);
+      expect(html).toContain(school.phone.display);
+      expect(html).toContain(`href="${altTel}"`);
+      expect(html).toContain(school.phoneAlt.display);
+    });
+
+    it("renders direct email mailto link", () => {
+      const html = renderToString(<ContactGrid />);
+      expect(html).toContain(`href="mailto:${school.email.value}`);
+      expect(html).toContain(school.email.display);
+    });
+
+    it("renders Google Maps external link and physical address", () => {
+      const html = renderToString(<ContactGrid />);
+      expect(html).toContain(school.address.street);
+      expect(html).toContain(school.address.city);
+      expect(html).toContain(school.address.state);
+      expect(html).toContain(school.address.postalCode);
+      expect(html).toContain(school.address.country);
+      expect(html).toContain(`href="${school.mapsUrl.replace(/&/g, "&amp;")}"`);
+      expect(html).toContain('target="_blank"');
+    });
+  });
+
+  describe("Footer component", () => {
+    it("renders semantic footer with copyright and full school details", () => {
+      const html = renderToString(<Footer />);
+      expect(html).toContain("<footer");
+      expect(html).toContain("© 2026");
+      expect(html).toContain(school.name);
+      expect(html).toContain("All rights reserved");
+      expect(html).toContain(school.address.street);
+      expect(html).toContain(school.address.city);
+      expect(html).toContain(school.address.state);
+      expect(html).toContain(school.address.country);
+    });
+  });
+
+  describe("App integration", () => {
+    it("renders complete integrated landing page with landmarks and skip link", () => {
+      const html = renderToString(<App />);
+      expect(html).toContain("Skip to main content");
+      expect(html).toContain('href="#main-content"');
+      expect(html).toContain('<main id="main-content"');
+      expect(html).toContain("<header");
+      expect(html).toContain("<footer");
+      expect(html).toContain(school.name);
+      expect(html).toContain("Excellence in Education.");
+      expect(html).toContain("Admissions &amp; Enrollment Inquiries Are Open");
+      expect(html).toContain("Direct Contact &amp; Campus Access");
     });
   });
 });
