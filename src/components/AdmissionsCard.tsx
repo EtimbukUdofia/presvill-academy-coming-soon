@@ -62,6 +62,7 @@ export function AdmissionsCard() {
               href={whatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Inquire on WhatsApp with admissions (${school.whatsapp.display}) (opens in a new tab)`}
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl font-semibold text-base text-white bg-gradient-to-r from-[#FF6A00] to-orange-600 hover:from-[#E55F00] hover:to-orange-700 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-orange-950/50 hover:shadow-orange-900/60 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-950 cursor-pointer"
             >
               <MessageSquare className="w-5 h-5 shrink-0" aria-hidden="true" />

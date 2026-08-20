@@ -59,6 +59,11 @@ describe("UI Components", () => {
       expect(html).toContain(school.whatsapp.display);
     });
 
+    it("includes accessible aria-label with new tab indicator", () => {
+      const html = renderToString(<AdmissionsCard />);
+      expect(html).toContain(`aria-label="Inquire on WhatsApp with admissions (${school.whatsapp.display}) (opens in a new tab)"`);
+    });
+
     it("includes the 'group' class on the CTA link for hover micro-interaction", () => {
       const html = renderToString(<AdmissionsCard />);
       expect(html).toContain("group ");
@@ -74,29 +79,33 @@ describe("UI Components", () => {
       expect(html).toContain("Campus Location");
     });
 
-    it("renders WhatsApp link with valid wa.me URI and display phone", () => {
+    it("renders WhatsApp link with valid wa.me URI and display phone and new tab accessibility hint", () => {
       const html = renderToString(<ContactGrid />);
       expect(html).toContain("https://wa.me/2347082238793");
       expect(html).toContain(school.whatsapp.display);
+      expect(html).toContain(`aria-label="Chat with Presvill Academy Admissions on WhatsApp at ${school.whatsapp.display} (opens in a new tab)"`);
     });
 
-    it("renders both primary and alternate phone numbers with tel: URIs", () => {
+    it("renders both primary and alternate phone numbers with tel: URIs and labels", () => {
       const html = renderToString(<ContactGrid />);
       const primaryTel = buildTelUrl(school.phone.value);
       const altTel = buildTelUrl(school.phoneAlt.value);
       expect(html).toContain(`href="${primaryTel}"`);
       expect(html).toContain(school.phone.display);
+      expect(html).toContain(`aria-label="Call primary phone line: ${school.phone.display}"`);
       expect(html).toContain(`href="${altTel}"`);
       expect(html).toContain(school.phoneAlt.display);
+      expect(html).toContain(`aria-label="Call alternate phone line: ${school.phoneAlt.display}"`);
     });
 
-    it("renders direct email mailto link", () => {
+    it("renders direct email mailto link and label", () => {
       const html = renderToString(<ContactGrid />);
       expect(html).toContain(`href="mailto:${school.email.value}`);
       expect(html).toContain(school.email.display);
+      expect(html).toContain('aria-label="Send email to presvillacademy@gmail.com"');
     });
 
-    it("renders Google Maps external link and physical address", () => {
+    it("renders Google Maps external link with new tab indicator and physical address", () => {
       const html = renderToString(<ContactGrid />);
       expect(html).toContain(school.address.street);
       expect(html).toContain(school.address.city);
@@ -105,6 +114,7 @@ describe("UI Components", () => {
       expect(html).toContain(school.address.country);
       expect(html).toContain(`href="${school.mapsUrl.replace(/&/g, "&amp;")}"`);
       expect(html).toContain('target="_blank"');
+      expect(html).toContain('aria-label="View Presvill Academy campus location on Google Maps (opens in a new tab)"');
     });
   });
 

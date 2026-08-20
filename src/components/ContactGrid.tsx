@@ -48,6 +48,7 @@ export function ContactGrid() {
             href={whatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Chat with Presvill Academy Admissions on WhatsApp at ${school.whatsapp.display} (opens in a new tab)`}
             className="inline-flex items-center justify-between px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 group-hover:border-orange-500/40 text-sm font-semibold text-white hover:bg-orange-600/10 transition-colors"
           >
             <span className="text-slate-200">{school.whatsapp.display}</span>
@@ -78,6 +79,7 @@ export function ContactGrid() {
           <div className="flex flex-col sm:flex-row gap-2.5">
             <a
               href={buildTelUrl(school.phone.value)}
+              aria-label={`Call primary phone line: ${school.phone.display}`}
               className="flex-1 inline-flex items-center justify-between px-3.5 py-3 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-orange-500/40 text-xs sm:text-sm font-medium text-white hover:bg-orange-600/10 transition-colors"
             >
               <div className="flex flex-col text-left">
@@ -88,6 +90,7 @@ export function ContactGrid() {
             </a>
             <a
               href={buildTelUrl(school.phoneAlt.value)}
+              aria-label={`Call alternate phone line: ${school.phoneAlt.display}`}
               className="flex-1 inline-flex items-center justify-between px-3.5 py-3 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-orange-500/40 text-xs sm:text-sm font-medium text-white hover:bg-orange-600/10 transition-colors"
             >
               <div className="flex flex-col text-left">
@@ -119,6 +122,7 @@ export function ContactGrid() {
           </div>
           <a
             href={buildMailtoUrl(school.email.value, emailSubject)}
+            aria-label={`Send email to ${school.email.display}`}
             className="inline-flex items-center justify-between px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 group-hover:border-orange-500/40 text-sm font-semibold text-white hover:bg-orange-600/10 transition-colors"
           >
             <span className="text-slate-200 truncate">{school.email.display}</span>
@@ -150,6 +154,7 @@ export function ContactGrid() {
             href={school.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View Presvill Academy campus location on Google Maps (opens in a new tab)"
             className="inline-flex items-center justify-between px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 group-hover:border-orange-500/40 text-sm font-semibold text-white hover:bg-orange-600/10 transition-colors"
           >
             <span className="text-slate-200">Google Maps Directions</span>
