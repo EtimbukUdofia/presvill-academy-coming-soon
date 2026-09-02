@@ -81,7 +81,7 @@ describe("UI Components", () => {
 
     it("renders WhatsApp link with valid wa.me URI and display phone and new tab accessibility hint", () => {
       const html = renderToString(<ContactGrid />);
-      expect(html).toContain("https://wa.me/2347082238793");
+      expect(html).toContain("https://wa.me/2347082238798");
       expect(html).toContain(school.whatsapp.display);
       expect(html).toContain(`aria-label="Chat with Presvill Academy Admissions on WhatsApp at ${school.whatsapp.display} (opens in a new tab)"`);
     });
@@ -98,11 +98,14 @@ describe("UI Components", () => {
       expect(html).toContain(`aria-label="Call alternate phone line: ${school.phoneAlt.display}"`);
     });
 
-    it("renders direct email mailto link and label", () => {
+    it("renders direct email and emailAlt mailto link and label", () => {
       const html = renderToString(<ContactGrid />);
       expect(html).toContain(`href="mailto:${school.email.value}`);
       expect(html).toContain(school.email.display);
       expect(html).toContain('aria-label="Send email to presvillacademy@gmail.com"');
+      expect(html).toContain(`href="mailto:${school.emailAlt.value}`);
+      expect(html).toContain(school.emailAlt.display);
+      expect(html).toContain('aria-label="Send email to presvillacademyhigh@gmail.com"');
     });
 
     it("renders Google Maps external link with new tab indicator and physical address", () => {
