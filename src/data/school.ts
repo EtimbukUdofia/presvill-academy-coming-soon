@@ -21,8 +21,8 @@ export const school: SchoolInfo = {
   mapsUrl:
     "https://maps.google.com/?cid=9788194298875879912&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en-US&source=embed",
   phone: {
-    value: "0708 223 8793",
-    display: "0708 223 8793",
+    value: "0708 223 8798",
+    display: "0708 223 8798",
   },
   phoneAlt: {
     value: "0818 284 2919",
@@ -32,9 +32,13 @@ export const school: SchoolInfo = {
     value: "presvillacademy@gmail.com",
     display: "presvillacademy@gmail.com",
   },
+  emailAlt: {
+    value: "presvillacademyhigh@gmail.com",
+    display: "presvillacademyhigh@gmail.com",
+  },
   whatsapp: {
-    value: "+234 708 223 8793",
-    display: "+234 708 223 8793",
+    value: "+234 708 223 8798",
+    display: "+234 708 223 8798",
   },
   session: "2026/2027",
   academicLevels: [

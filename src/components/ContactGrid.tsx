@@ -68,7 +68,7 @@ export function ContactGrid() {
               <div>
                 <h3 className="text-lg font-bold text-white font-display">Direct Phone Lines</h3>
                 <span className="text-xs font-medium text-slate-400 mt-0.5 block">
-                  Monday – Friday • 8:00 AM – 4:00 PM
+                  Monday – Friday • 8:00 AM – 5:00 PM
                 </span>
               </div>
             </div>
@@ -126,6 +126,16 @@ export function ContactGrid() {
             className="inline-flex items-center justify-between px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 group-hover:border-orange-500/40 text-sm font-semibold text-white hover:bg-orange-600/10 transition-colors"
           >
             <span className="text-slate-200 truncate">{school.email.display}</span>
+            <span className="inline-flex items-center gap-1 text-[#FF6A00] text-xs font-semibold shrink-0 ml-2">
+              Send Email <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            </span>
+          </a>
+          <a
+            href={buildMailtoUrl(school.emailAlt.value, emailSubject)}
+            aria-label={`Send email to ${school.emailAlt.display}`}
+            className="inline-flex items-center justify-between px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 group-hover:border-orange-500/40 text-sm font-semibold text-white hover:bg-orange-600/10 transition-colors"
+          >
+            <span className="text-slate-200 truncate">{school.emailAlt.display}</span>
             <span className="inline-flex items-center gap-1 text-[#FF6A00] text-xs font-semibold shrink-0 ml-2">
               Send Email <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
             </span>

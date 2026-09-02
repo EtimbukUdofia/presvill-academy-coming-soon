@@ -20,6 +20,7 @@ export interface SchoolInfo {
   phone: SchoolContactItem;
   phoneAlt: SchoolContactItem;
   email: SchoolContactItem;
+  emailAlt: SchoolContactItem;
   whatsapp: {
     value: string;
     display: string;
