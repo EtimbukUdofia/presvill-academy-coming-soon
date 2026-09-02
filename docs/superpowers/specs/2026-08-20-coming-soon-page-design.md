@@ -3,7 +3,7 @@
 **Date:** 2026-08-20  
 **Target Repository:** `/home/hazzel/Documents/dev/presvill-coming-soon`  
 **Target Domain:** `https://presvillacademy.com`  
-**Deployment Platform:** Cloudflare Pages  
+**Deployment Platform:** Cloudflare Pages
 
 ---
 
@@ -12,6 +12,7 @@
 Presvill Academy is a premier private institution located at **18 Abel Damina Way, Uyo, Akwa Ibom, Nigeria**, providing education across Creche, Pre-School, Grade School, and High School levels.
 
 While the comprehensive institutional website is under construction, this standalone "Coming Soon / Under Construction" web project will be deployed immediately to `https://presvillacademy.com`. It provides:
+
 1. An authoritative institutional placeholder that confirms the school's official digital presence.
 2. A direct conversion hub for prospective parents to contact admissions for the **2026/2027 Academic Session**.
 3. Instant one-tap access to WhatsApp, phone calls, email, and Google Maps directions to the physical campus.
@@ -75,12 +76,14 @@ While the comprehensive institutional website is under construction, this standa
 ## 4. UI Components & Content Details
 
 ### 4.1 Header (`Header.tsx`)
+
 - Displays the official Presvill Academy crest (`/logo.png`) with responsive dimensions.
 - Displays a status pill badge with a subtle pulsing orange glow: `"Official Website Under Construction • Opening Soon"`.
 
 ### 4.2 Hero Section (`Hero.tsx`)
-- Headline: *"Excellence in Education. Shaping Tomorrow's Leaders."*
-- Subheading: *"Presvill Academy is currently preparing our comprehensive digital home. In the meantime, our campus is open and our admissions team is ready to assist you."*
+
+- Headline: _"Excellence in Education. Shaping Tomorrow's Leaders."_
+- Subheading: _"Presvill Academy is currently preparing our comprehensive digital home. In the meantime, our campus is open and our admissions team is ready to assist you."_
 - Academic Levels Badge Row:
   - Creche
   - Pre-School
@@ -88,18 +91,22 @@ While the comprehensive institutional website is under construction, this standa
   - High School (JSS 1 – JSS 2)
 
 ### 4.3 Admissions Advisory (`AdmissionsCard.tsx`)
+
 - Highlights the **2026/2027 Academic Session**.
-- Clearly states: *"Admissions and enrollment inquiries are currently open for new students."*
-- Primary CTA Button: Direct WhatsApp chat with admissions (`+234 708 223 8793`) preloaded with an inquiry message.
+- Clearly states: _"Admissions and enrollment inquiries are currently open for new students."_
+- Primary CTA Button: Direct WhatsApp chat with admissions (`+234 708 223 8794`) preloaded with an inquiry message.
 
 ### 4.4 Quick-Action Contact Grid (`ContactGrid.tsx`)
+
 Four high-contrast, mobile-first cards:
+
 1. **WhatsApp Chat:** One-click launch to WhatsApp on mobile or web with international E.164 format.
-2. **Telephone Lines:** Direct call links to `0708 223 8793` and `0818 284 2919`.
+2. **Telephone Lines:** Direct call links to `0708 223 8794` and `0818 284 2919`.
 3. **Email Inquiry:** Mailto link to `presvillacademy@gmail.com`.
 4. **Campus Location:** Displays `18 Abel Damina Way, Uyo 520102, Akwa Ibom, Nigeria` linking directly to the Google Maps place listing.
 
 ### 4.5 Footer (`Footer.tsx`)
+
 - Copyright notice: `© 2026 Presvill Academy. All rights reserved.`
 - Address & accreditation note.
 

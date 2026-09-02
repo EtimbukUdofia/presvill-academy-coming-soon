@@ -16,10 +16,10 @@
 - Target domain: `https://presvillacademy.com`
 - Primary brand orange: `#FF6A00`
 - Physical address: `18 Abel Damina Way, Uyo 520102, Akwa Ibom, Nigeria`
-- Primary phone: `0708 223 8793`
+- Primary phone: `0708 223 8794`
 - Alternate phone: `0818 284 2919`
 - Email: `presvillacademy@gmail.com`
-- WhatsApp: `+234 708 223 8793`
+- WhatsApp: `+234 708 223 8794`
 - Current academic session: `2026/2027`
 - TypeScript: strict mode (`tsc -b`), zero build warnings
 - Zero fabricated school content; unconfirmed data must not be invented
@@ -29,6 +29,7 @@
 ### Task 1: Project Scaffolding & Configuration
 
 **Files:**
+
 - Create: `package.json`
 - Create: `tsconfig.json`
 - Create: `tsconfig.app.json`
@@ -41,6 +42,7 @@
 - Copy: `public/logo.png` and `public/og-image.png` from `../presvill-academy/public/`
 
 **Interfaces:**
+
 - Produces: Base Vite + React + Tailwind toolchain with Cloudflare Pages headers and public brand assets.
 
 - [ ] **Step 1: Create `package.json` and install dependencies**
@@ -107,12 +109,14 @@ git commit -m "chore: scaffold vite react tailwind project with assets and confi
 ### Task 2: Data Models, Centralized Constants & Contact Normalization
 
 **Files:**
+
 - Create: `src/types/index.ts`
 - Create: `src/lib/contact.ts`
 - Create: `src/lib/contact.test.ts`
 - Create: `src/data/school.ts`
 
 **Interfaces:**
+
 - Produces: `SchoolInfo` type interface, `school` constant object, `formatE164Phone(raw: string): string`, `buildWhatsAppUrl(phone: string, text?: string): string`.
 
 - [ ] **Step 1: Write failing test in `src/lib/contact.test.ts`**
@@ -123,14 +127,17 @@ import { formatE164Phone, buildWhatsAppUrl } from "./contact";
 
 describe("Contact Utilities", () => {
   it("formats Nigerian local mobile number to E.164", () => {
-    expect(formatE164Phone("0708 223 8793")).toBe("+2347082238793");
+    expect(formatE164Phone("0708 223 8794")).toBe("+2347082238794");
     expect(formatE164Phone("08182842919")).toBe("+2348182842919");
-    expect(formatE164Phone("+234 708 223 8793")).toBe("+2347082238793");
+    expect(formatE164Phone("+234 708 223 8794")).toBe("+2347082238794");
   });
 
   it("builds valid WhatsApp direct chat URL with encoded text", () => {
-    const url = buildWhatsAppUrl("+2347082238793", "Hello Presvill Academy, I would like to inquire about admissions.");
-    expect(url).toContain("https://wa.me/2347082238793");
+    const url = buildWhatsAppUrl(
+      "+2347082238794",
+      "Hello Presvill Academy, I would like to inquire about admissions.",
+    );
+    expect(url).toContain("https://wa.me/2347082238794");
     expect(url).toContain("text=Hello%20Presvill%20Academy");
   });
 });
@@ -162,11 +169,13 @@ git commit -m "feat: add school data models and contact link normalization utili
 ### Task 3: Header, Hero, and Admissions UI Components
 
 **Files:**
+
 - Create: `src/components/Header.tsx`
 - Create: `src/components/Hero.tsx`
 - Create: `src/components/AdmissionsCard.tsx`
 
 **Interfaces:**
+
 - Consumes: `school` from `../data/school`, `buildWhatsAppUrl` from `../lib/contact`.
 - Produces: `Header`, `Hero`, `AdmissionsCard` presentation components.
 
@@ -199,18 +208,21 @@ git commit -m "feat: add Header, Hero, and AdmissionsCard components"
 ### Task 4: Contact Grid, Footer, and App Page Integration
 
 **Files:**
+
 - Create: `src/components/ContactGrid.tsx`
 - Create: `src/components/Footer.tsx`
 - Create: `src/App.tsx`
 - Create: `src/main.tsx`
 
 **Interfaces:**
+
 - Consumes: `Header`, `Hero`, `AdmissionsCard`, `school` data, `formatE164Phone`.
 - Produces: Full interactive Coming Soon landing page.
 
 - [ ] **Step 1: Implement `src/components/ContactGrid.tsx`**
 
 Create 4 interactive action cards:
+
 1. WhatsApp chat card with direct link
 2. Direct phone call card with both primary and secondary phone lines
 3. Direct email inquiry card
@@ -241,6 +253,7 @@ git commit -m "feat: assemble complete coming soon landing page with contact gri
 ### Task 5: Production Build Validation & Quality Verification
 
 **Files:**
+
 - Modify: `README.md` (Update project docs and local dev instructions)
 
 - [ ] **Step 1: Run complete test suite and production build**

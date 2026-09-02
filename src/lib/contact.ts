@@ -4,11 +4,11 @@ const NIGERIA_DIALLING_CODE = "234";
  * Normalizes a phone number to standard international E.164 format (+234...).
  *
  * Handles:
- * - Local Nigerian format: "0708 223 8793" -> "+2347082238793"
+ * - Local Nigerian format: "0708 223 8794" -> "+2347082238794"
  * - Compact local format: "08182842919" -> "+2348182842919"
- * - International with spaces/symbols: "+234 708 223 8793" -> "+2347082238793"
- * - International with trunk zero: "+234 (0) 708 223 8793" -> "+2347082238793"
- * - Clean international digits: "2347082238793" -> "+2347082238793"
+ * - International with spaces/symbols: "+234 708 223 8794" -> "+2347082238794"
+ * - International with trunk zero: "+234 (0) 708 223 8794" -> "+2347082238794"
+ * - Clean international digits: "2347082238794" -> "+2347082238794"
  */
 export function formatE164Phone(raw: string): string {
   const digits = raw.replace(/\D/g, "");
